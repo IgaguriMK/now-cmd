@@ -1,0 +1,19 @@
+[package]
+name = "now-cmd"
+version = "0.1.0"
+edition = "2018"
+
+authors = ["Igaguri <igagurimk@gmail.com>"]
+description = "Show current time."
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/IgaguriMK/ed-voice-attendant"
+repository = "https://github.com/IgaguriMK/ed-voice-attendant"
+categories = ["command-line-utilities"]
+keywords = ["time"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+chrono = "0.4.10"
+clap = "2.33"
