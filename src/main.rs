@@ -1,4 +1,7 @@
+mod formatter;
+
 use anyhow::Error;
+use chrono::Local;
 use clap::{App, Arg};
 
 fn main() {
@@ -14,10 +17,20 @@ fn execute() -> Result<(), Error> {
             Arg::with_name("format")
                 .short("f")
                 .long("format")
-                .default_value("iso8601")
+                .default_value("human")
                 .help("Output format"),
         )
         .get_matches();
+
+    let fmt_name = matches.value_of("format").unwrap();
+    let formatter = formatter::parse(fmt_name)?;
+
+    //////////////
+
+    let now = Local::now().naive_local();
+
+    let s = formatter.format(now);
+    println!("{}", s);
 
     Ok(())
 }
